@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="a web based portfolio for Cameron Early.">
+    <meta name="keywords" content="cameron early, glasgow university, glasgow university software engineering apprenticeship, software, programming, portfolio">
+    <meta name="author" content="Cameron Early">
+
+    <title>Cameron Early</title>
+</head>
+<style>
+
+      *{
+          padding: 0;
+          margin: 0;
+          background-color: black;
+      }
+  
+      #terminal
+      {
+          background-color: black;
+          font-family: "Consolas";
+          font-size: 16px;
+          color: white;
+          height:100dvh;
+          
+      }
+      
+
+      #active::after {
+      content: "";
+      width: 6px;
+      height:2px;
+      background: #ffffff;
+      display: inline-block;
+      animation: cursor-blink 1s step-end infinite;
+      }
+  
+      @keyframes cursor-blink {
+      50% {
+          opacity: 0;
+      }
+      }
+
+      a
+      {
+          text-decoration: underline;
+          cursor: pointer;
+          color: white;
+      }
+
+      a:hover
+      {
+          background-color: white;
+          color: black;
+      }
+
+
+
+              
+</style>
+<body>
+            
+    <div id ="terminal" class="column">
+        
+        <script>
+        let running = false;
+
+        const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+        function deactivateActiveLine()
+        {
+          var active = document.getElementById("active");
+          if(active){
+            active.id = "inactive";
+          }
+        }
+        
+        async function cdIntoWebsite() 
+        {
+            document.getElementById('terminal').insertAdjacentHTML("beforeend", "<p id='active' style='padding-top:8px;'>C:\\Users\\Cameron> </p>");
+            let content = "cd myWebsite";
+            for (letter of content)
+            {
+            document.getElementById("active").innerHTML += letter;
+            await sleep(Math.floor(Math.random() * 100) + 75)
+          }
+        }
+
+        async function listDir() 
+        {
+
+
+            deactivateActiveLine();
+
+            document.getElementById('terminal').insertAdjacentHTML("beforeend", "<p id='active' style='padding-top:8px; padding-bottom:8px;'>C:\\Users\\Cameron\\myWebsite> </p>");
+            let content = "dir";
+            for (letter of content)
+            {
+            document.getElementById("active").innerHTML += letter;
+            await sleep(Math.floor(Math.random() * 100) + 75)
+          }
+          document.getElementById("active").id = "inactive";
+          document.getElementById('terminal').insertAdjacentHTML("beforeend", "<p id='inactive'>30/05/2023  18:00    &lt;DIR&gt;          index.html</p>");
+          document.getElementById('terminal').insertAdjacentHTML("beforeend", "<p id='inactive'>30/05/2023  18:00    &lt;DIR&gt;          <a onclick='aboutMe()'>aboutMe.html</a></p>");
+          document.getElementById('terminal').insertAdjacentHTML("beforeend", "<p id='inactive'>30/05/2023  18:00    &lt;DIR&gt;          <a onclick='experience()'>experience.html</p>");
+          // document.getElementById('terminal').insertAdjacentHTML("beforeend", "<p id='inactive'>30/05/2023  18:00    &lt;DIR&gt;          portfolio.html</p>");
+          // document.getElementById('terminal').insertAdjacentHTML("beforeend", "<p id='inactive'>30/05/2023  18:00    &lt;DIR&gt;          blog.html</p>");
+
+          document.getElementById('terminal').insertAdjacentHTML("beforeend", "<p id='active' style='padding-top:8px; padding-bottom:8px;'>C:\\Users\\Cameron\\myWebsite> </p>");
+          running = false;
+        }
+      
+
+        async function aboutMe()
+        {
+            if (running == true)
+            {
+              return;
+            }
+
+            running = true;
+
+            content = "render aboutMe.html"
+            for (letter of content)
+            {
+            document.getElementById("active").innerHTML += letter;
+            await sleep(Math.floor(Math.random() * 75) + 50)
+            }
+
+            running = true;
+            deactivateActiveLine();
+
+            document.getElementById('terminal').insertAdjacentHTML("beforeend", "<pre style = font-size:8px; id='active-ascii'>");
+
+            let ascii = (`
+            
+            
+                        :!!~!G&##&&&#######&P!~!!!~                                                  
+                    !YYP#&&&G55Y5P555Y5PPP5PB#BB#BYYJ:                                              
+                :.!GBGGP5555555555555PGBBBP555YYY5PGGGBG!                                           
+              ~Y##B5PP555PPPPGBBGPGBBBBPGBBBBGPPPPP55PP5BG7.                                        
+            ~PBG5PGGPP5PGBBBGPPGBBBBBBBBBBBBBBBBBBBGGBBG55BGJ.                                      
+           .5@PY55PPGBBBBBGP5555PBBBBBBBBBBBBBBBBBBBBPPBP55PGBJ.                                    
+         ^JBG555555GGGGGGGGBBBBBBBBBBBGGGGGGGGGGGBBBBPGBBBBGP5#&:                                   
+       :5BG55555555GGGGGGGGBBBBGPPPPPY7777???7?YPPPGBBBBBBBBB5PGG7                                  
+      .?&BY5555PBBBBBBBGBBBBBPYYJ!!!!~~:..^~~~!!!!!?55PGBBBBBG55&P:                                 
+    :?GB55555PBBBBBGGP555J?JJ?!!!!!~. ......^~!!!!!!!?Y5PGBBG555YB@!                                
+    7@GY5555GBBGPP55?7777!!!!!!!!!!!~:.....:!!!!!!!!!!!7Y5PGBGP5YB@~                                
+   :J&GYJJY5PGP5J7!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!75GBBG55#@~                                
+  .#@5J!.:7Y55J7!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!75GBBBBP#@~                                
+   #B^~^.^75Y7!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!75GBBG5YB@~                                
+ :7P5!:..:!J?^.:~!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!7JPGGP55#@~                                
+ J@~.!:....::....~!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!J5555G&@~                                
+  ^G5............~!!!!!!!!!!!!!!!!!!!!!~!!!!!!!!!!!!!!!!!!!J555PG&&7                                
+  .#G. .......... :!!!!!!!!!!!!!!!!!7?JJYPPPPPPPPY???!!!!!!!7YGBBP5@G                               
+  .#G. ..........^~!!!!!!!!!!!!!!!?YGBBBBBBGPPPP555557~!!!!~7PBB#575G5~                             
+    ?&! ... .^^~7YPGGGGP55J7!!!!?Y5PGP555PPP5555555J77!!!!!~7GBBP?~^Y@7                             
+    ^YY7. :~JPGGGGGGGGGGG5YJ!~!YP55555PPGBBBBGPPPPPPPPJ!~!!~7PBB?7J?P@7                             
+      G#: ^5P55555PGGP5555J!!!!!?555GBBBGPGBBBBPGBBGP55PP5Y77GBP5PGP#@7                             
+       !&GYYYY555GBBBBBGGP555J7!?5PGGBBBP555555555YYJ7?5?!!~755YY5P5B@7                             
+       ~@#J^~J5P5JYBBBBGGBP?Y55555555PG5555555YJ??!!!~?57~!~!J5PG5JGGJ:                             
+     :5G?YY~!7^:^?YPPPPGGP?!Y55?7JY55J777777777!!!!!!!?5?~!!!!JGG5J?YG!                             
+    ~PGPJYY~~!:.:~?5YJJ?!!7?5Y!~~!J55?~!!!!!!!!!!!!!!Y5J7~!!!!?5PY?YPG~                             
+       ~@#J^~!!!!!7?7!!!!!7?!^:~!!!?YY?!!!!!!!!!7?!7J5J~~!!~!J?~7!!&G                               
+       ~#BY7^:~!!!!!!!!^:!Y5:.~~!!~~!JPGY!!7777!J5YJ7!!!!!!!7J?~~~!#G                               
+         5@PJ7!^.:~!!!~7JJJ7..!777777!!J5P55555YYJ?777?JJJJJJJ?!!7Y&G                               
+         P&!75Y!.:~!?Y5GP7: :~!?Y55555Y?JYYJJJJJ???JYYJJJJJJJJP####@P                               
+         YB~...~JYYY5GGP5J??YJ!7YPGPPPPYJJJJJJJJJJJJJJJJJJJJ5&Y:::::.                               
+          ^@Y    ^7J5PP5J?7!!!!!JPP55YJJJ???JJJJJJJJJJJJJJJJ5@J                                     
+          ^&Y   .^7J5PY?!!!!!~!?YYYJJJJ7!!~7JJJJJJJJJJJJJJJJ5@Y                                     
+            Y#^ .^7JPPJ7!~~~!77JYY5PPPPPPPPPP5YJJJJJJJJJJJJB@#7                                     
+            Y@^ .^!75P555JJJJ5GPPPPPPP555555555JJJJJJJJJJJJ##.                                      
+            .!GJ ^!~?5PGP5J7!?Y5PPPPYJJJJJJJJJJJJJJJJJJJ55J&#:                                      
+             .5P!^^!7J55J!~~!~!?YJJJJJJJJJJJJJJJJJJJJY5PG#@&Y.                                      
+               ^J5?:^!7?7!!!!!!?YJJJJJJJJJJJJJJJJJJJJPPP&&J:                                        
+                 :?G7^^^~!!!!!!?YJJJJJJJJJJJJJYYJY5PPG#@@P                                          
+                    ?5??7^^!!!!?YJJJJJJJJJYYY5PPPPG&@GPP^                                           
+                     .7??5J!~~!?YJJY555555PPPB&##&@G!                                               
+                         :JGJJ5JJJ5PPGBBBB&@B#G^:::.                                                
+                           .J55PB####GY5555?                                                        
+                               ~7!!77:                                                              
+                                                                                                    
+                                                                                                    
+                                                                                                    `);                                                                                                                 
+                                                                                                                                                                                                        
+            document.getElementById("active-ascii").innerHTML = ascii;
+            document.getElementById("active-ascii").id = "inactive-ascii";
+            document.getElementById('terminal').insertAdjacentHTML("beforeend", "<p id='active' style='padding-top:8px; padding-bottom:8px; max-width:75%; word-wrap:break-word;'></p>");
+            content = "My name is Cameron Early, a graduate apprentice Software Engineer! Currently going through Glasgow University's Software Engineering Apprenticeship which you can learn more about <a href='https://www.gla.ac.uk/undergraduate/degrees/softwareengineeringgraduateapprenticeship/'>here</a>"
+            for (letter of content)
+            {
+            document.getElementById("active").innerHTML += letter;
+            await sleep(Math.floor(Math.random() * 10) + 5)
+          }
+          document.getElementById("active").innerHTML = content
+          deactivateActiveLine();
+          await listDir();
+        }
+
+        async function writeCoolHTMLContent(content, charsAtATime, sleepTime)
+        {
+          document.getElementById('terminal').insertAdjacentHTML("beforeend", "<p id='active' style='padding-top:8px; padding-bottom:8px; max-width:75%; word-wrap:break-word;'></p>");
+
+          for (let i = 0; i < content.length; i+=charsAtATime) {
+            document.getElementById("active").innerText = content.slice(0, i);
+            await sleep(sleepTime);
+          }
+
+          document.getElementById("active").innerHTML = content
+          document.getElementById("active").id = "inactive";
+
+          deactivateActiveLine();
+        }
+
+        async function experience()
+        {
+          if (running == true)
+            {
+              return;
+            }
+
+          running = true;
+          content = "render experience.html"
+
+          for (letter of content)
+          {
+          document.getElementById("active").innerHTML += letter;
+          await sleep(Math.floor(Math.random() * 75) + 50)
+          }
+
+          deactivateActiveLine();
+
+          await writeCoolHTMLContent("<p><b>- Python</b><p><p>I have used <b><span style='color:#3776ab;'>Pyt</span><span style='color:#ffd343;'>hon</span></b> to build robust webapps through the use of <b><span style='color:green;'>Django</span></b> and <b>Flask</b>. I have also used <b><span style='color:#3776ab;'>Pyt</span><span style='color:#ffd343;'>hon</span></b> to automate small, repetitive tasks through the use of the <b>Win32 API</b> and <b>PyAutoGUI</b>.", 4, 25);
+
+          deactivateActiveLine();
+
+          await sleep (500);
+
+          await writeCoolHTMLContent("<p><b>- Git and Version Control</b><p>I have used <span style='color:#f1502f;'><b>Git</b></span> During university assignments for both individual projects and while working collaboratively in a team.</p>", 4, 25);
+
+          await listDir();
+        }
+
+        
+        document.addEventListener("DOMContentLoaded", () => {
+                    initialAnimations();
+                });
+
+        async function clearTerminal()
+        {
+          document.getElementById("terminal").innerHTML = "";
+        }
+
+        async function initialAnimations()
+        {
+            await cdIntoWebsite();
+            await listDir();
+        }
+        
+        </script>
+</body>
+</html>
