@@ -107,7 +107,7 @@
           document.getElementById('terminal').insertAdjacentHTML("beforeend", "<p id='inactive'>30/05/2023  18:00    &lt;DIR&gt;          index.html</p>");
           document.getElementById('terminal').insertAdjacentHTML("beforeend", "<p id='inactive'>30/05/2023  18:00    &lt;DIR&gt;          <a onclick='aboutMe()'>aboutMe.html</a></p>");
           document.getElementById('terminal').insertAdjacentHTML("beforeend", "<p id='inactive'>30/05/2023  18:00    &lt;DIR&gt;          <a onclick='experience()'>experience.html</p>");
-          // document.getElementById('terminal').insertAdjacentHTML("beforeend", "<p id='inactive'>30/05/2023  18:00    &lt;DIR&gt;          portfolio.html</p>");
+          document.getElementById('terminal').insertAdjacentHTML("beforeend", "<p id='inactive'>30/05/2023  18:00    &lt;DIR&gt;          <a onclick='portfolio()'>portfolio.html</p>");
           // document.getElementById('terminal').insertAdjacentHTML("beforeend", "<p id='inactive'>30/05/2023  18:00    &lt;DIR&gt;          blog.html</p>");
 
           document.getElementById('terminal').insertAdjacentHTML("beforeend", "<p id='active' style='padding-top:8px; padding-bottom:8px;'>C:\\Users\\Cameron\\myWebsite> </p>");
@@ -243,6 +243,32 @@
           await writeCoolHTMLContent("<p><b>- Git and Version Control</b><p>I have used <span style='color:#f1502f;'><b>Git</b></span> During university assignments for both individual projects and while working collaboratively in a team.</p>", 4, 25);
 
           await listDir();
+        }
+
+        async function portfolio()
+        {
+          if (running == true)
+          {
+            return;
+          }
+
+          running = true;
+          content = "render portfolio.html"
+
+          for (letter of content)
+          {
+            document.getElementById("active").innerHTML += letter;
+            await sleep(Math.floor(Math.random() * 75) + 50)
+          }
+
+          deactivateActiveLine();
+
+          await writeCoolHTMLContent("<p><b>- HTML, CSS and JavaScript</b><p>I have used <b><span style='color:#e34c26;'>HTML</span></b>, <b><span style='color:#264de4;'>CSS</span></b> and <b><span style='color:#f0db4f;'>JavaScript</span></b> to build this website!</p>", 10, 25);
+  
+          deactivateActiveLine();
+
+          await listDir();
+
         }
 
         
