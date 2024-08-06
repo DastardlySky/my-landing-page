@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -106,9 +105,9 @@
           document.getElementById("active").id = "inactive";
           document.getElementById('terminal').insertAdjacentHTML("beforeend", "<p id='inactive'>30/05/2023  18:00    &lt;DIR&gt;          index.html</p>");
           document.getElementById('terminal').insertAdjacentHTML("beforeend", "<p id='inactive'>30/05/2023  18:00    &lt;DIR&gt;          <a onclick='aboutMe()'>aboutMe.html</a></p>");
-          document.getElementById('terminal').insertAdjacentHTML("beforeend", "<p id='inactive'>30/05/2023  18:00    &lt;DIR&gt;          <a onclick='experience()'>experience.html</p>");
-          document.getElementById('terminal').insertAdjacentHTML("beforeend", "<p id='inactive'>30/05/2023  18:00    &lt;DIR&gt;          <a onclick='portfolio()'>portfolio.html</p>");
-          // document.getElementById('terminal').insertAdjacentHTML("beforeend", "<p id='inactive'>30/05/2023  18:00    &lt;DIR&gt;          blog.html</p>");
+          document.getElementById('terminal').insertAdjacentHTML("beforeend", "<p id='inactive'>30/05/2023  18:00    &lt;DIR&gt;          <a onclick='experience()'>experience.html</a></p>");
+          document.getElementById('terminal').insertAdjacentHTML("beforeend", "<p id='inactive'>30/05/2023  18:00    &lt;DIR&gt;          <a onclick='portfolio()'>portfolio.html</a></p>");
+          document.getElementById('terminal').insertAdjacentHTML("beforeend", "<p id='inactive'>30/05/2023  18:00    &lt;DIR&gt;          <a onclick='blog()'>blog.html</a></p>");
 
           document.getElementById('terminal').insertAdjacentHTML("beforeend", "<p id='active' style='padding-top:8px; padding-bottom:8px;'>C:\\Users\\Cameron\\myWebsite> </p>");
           running = false;
@@ -271,6 +270,32 @@
 
         }
 
+        async function blog()
+        {
+          if (running == true)
+          {
+            return;
+          }
+
+          running = true;
+          content = "render blog.html"
+
+          for (letter of content)
+          {
+            document.getElementById("active").innerHTML += letter;
+            await sleep(Math.floor(Math.random() * 75) + 50)
+          }
+
+          deactivateActiveLine();
+
+          await writeCoolHTMLContent("<p>Here's some blog posts!</p>", 5, 25);
+          await writeCoolHTMLContent("<p><a href='firstYearUni.html'>firstYearUni.html</a></p>", 5, 25);
+
+          deactivateActiveLine();
+
+          await listDir();
+
+        }
         
         document.addEventListener("DOMContentLoaded", () => {
                     initialAnimations();
